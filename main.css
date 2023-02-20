@@ -1,0 +1,39 @@
+body{
+    margin: 0;
+    height: 1000px;
+}
+
+.navbar{
+    display: flex;
+    flex-direction: row;
+    background-color: grey;
+    position: sticky;
+    top: 0px;
+    justify-content:space-between;
+    align-content: center;
+    margin: 0;
+}
+
+a{
+    margin-left: 10px;
+    margin-right: 10px;
+    color: black;
+}
+a:hover{
+    color: blue;
+}
+.homepage{
+    background-image: url("images/library.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.favpage{
+    background-image: url("images/favpage.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.library{
+    background-image: url("images/bookshelf.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
