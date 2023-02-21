@@ -1,8 +1,19 @@
 body{
     margin: 0;
-    height: 1000px;
+    max-height: 1000px;
 }
-
+.links{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    
+}
+.liHead{
+    list-style: none;
+    text-decoration-line: underline;
+    margin-left: 10px;
+    visibility: visible;
+}
 .navbar{
     display: flex;
     flex-direction: row;
@@ -18,6 +29,7 @@ a{
     margin-left: 10px;
     margin-right: 10px;
     color: black;
+    visibility:visible
 }
 a:hover{
     color: blue;
@@ -26,14 +38,35 @@ a:hover{
     background-image: url("images/library.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+   
 }
 .favpage{
     background-image: url("images/favpage.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 .library{
     background-image: url("images/bookshelf.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
+
+ul{
+    display: flex;
+    margin-left: 35%;
+    font-weight: 600;
+}
+li{
+    visibility: hidden;
+}
+
+.InputFrom{
+    margin: 5px;
+    display: flex;
+    justify-content:center;
+}
+  
+
+
