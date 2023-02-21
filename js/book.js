@@ -41,7 +41,17 @@ class Book {
         const commentBtn = document.createElement("button");
         commentBtn.classList = this.author;
         commentBtn.textContent = "Comment"
-        
+        //create comment (need to create limit of 280 chars)
+        commentBtn.addEventListener("click", () => {
+            let commentValue = commentArea.value;
+            
+
+            const commentLi = document.createElement("li");
+            commentLi.classList.add("comment");
+            commentLi.textContent = commentValue;
+
+            ul.appendChild(commentLi);
+        })
         //author li
         const liAuthor = document.createElement("li")
         liAuthor.classList = liAuthor;
