@@ -1,12 +1,19 @@
 const app = document.querySelector(".bookShelfSection");
-const bookshelf = new Bookshelf();
+let bookshelf = new Bookshelf();
 //const searchInput = document.querySelector(".seachInput");
-const searchBtn = document.querySelector(".searchButton")
-const sortByAZ = document.querySelector(".A-Z");
-const sortByZA = document.querySelector(".Z-A")
+// const searchBtn = document.querySelector(".searchButton")
+// const sortByAZ = document.querySelector(".A-Z");
+// const sortByZA = document.querySelector(".Z-A")
 const updateFavs = document.querySelector (".favBooks");
-let SubmitBtn = document.getElementById("SubmitBtn")
+const updateComment = document.querySelector(".this.title");
 
+let SubmitBtn = document.getElementById("SubmitBtn");
+
+const favStuff = document.querySelector(".favStuff");
+let favBooks = [];
+
+
+//loads books into bookshelf
 const loadBooks = bookData.map(bookInfo => {
     const book = new Book(
        bookInfo.author,
@@ -43,17 +50,33 @@ app.append(bookshelf.render());
 
 //submitting a new book
 SubmitBtn.addEventListener("click", () => {
-    let author = document.getElementById('Author').value
-    let language = document.getElementById('Language').value
-    let subject = document.getElementById('Subject').value
-    let title = document.getElementById('Title').value
+    let author = document.getElementById('Author').value;
+    let language = document.getElementById('Language').value;
+    let subject = document.getElementById('Subject').value;
+    let title = document.getElementById('Title').value;
 
-    if(!author || !language || !subject || !title)
-        alert("Must enter all Information")
-
-    let addedBook = new Book(author, language, subject, title)
-    app.append(addedBook)
-
-    bookshelf.render()
+    //check if any inputs are empty
+    if(!author || !language || !subject || !title){
+        alert("Must enter all Information");
+        return;
+    }
+    //create a new Book object and adds to the bookshelf
+    let addedBook = new Book(author, language, subject, title);
+    bookshelf.addBook(addedBook);
+    //clears before re-rendering
+    app.innerHTML = '';
+    //updates the displya/ re-render
+    app.append(bookshelf.render());
     // alert("this works");
 });
+
+// new event apply comment add to the home webpage
+// updateComment.addEventListener("click", () => {
+//     let comment = document.getElementsByClassName('this.title').value;
+//         alert(comment);
+    
+
+// });
+
+
+//new event add to favs
