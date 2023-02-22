@@ -55,6 +55,11 @@ class Book {
       const commentLi = document.createElement("li");
       commentLi.classList.add("comment");
       commentLi.textContent = commentValue;
+      //sessionstorage (this setItem sets the comment value into the session storage)
+      //this concept is awesome. now i need to be able to access it and bring back to screen.
+      //need to figure out how to store multiple comments for each and for others(give each comment a name)
+     sessionStorage.setItem('comment', [commentValue]);
+      //sessionStorage.removeItem('myKey');
       ul.appendChild(commentLi);
       //turning text field and button invisible after adding comment
       commentArea.style.display = "none";
@@ -75,13 +80,24 @@ class Book {
     const liSub = document.createElement("li");
     liSub.classList = liSub;
     liSub.textContent = this.subject;
-
+    //sessionStorage
+   
     //appending to html
     ul.prepend(favBtn);
     ul.append(populateCommentInput);
+    let comments = sessionStorage.getItem("comments");
+    if(comments) {
+      comments = JSON.parse(comments);
+      comments.forEach((comment) => {
+        const commentLi = document.createElement("li");
+        commentLi.classList.add("comment");
+        ul.append(commentLi);
+      });
+    }
+    //const lineBreak = createElement("hr");
     ul.append(commentArea);
     ul.append(commentBtn);
-
+    //ul.append(lineBreak);
     ul.appendChild(liAuthor);
     ul.appendChild(liLang);
     ul.appendChild(liSub);

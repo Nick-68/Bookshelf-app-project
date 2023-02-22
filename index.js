@@ -1,11 +1,12 @@
 const app = document.querySelector(".bookShelfSection");
 let bookshelf = new Bookshelf();
-//const searchInput = document.querySelector(".seachInput");
-// const searchBtn = document.querySelector(".searchButton")
-// const sortByAZ = document.querySelector(".A-Z");
-// const sortByZA = document.querySelector(".Z-A")
 const updateFavs = document.querySelector(".favBooks");
 const updateComment = document.querySelector(".this.title");
+//sorting language buttons
+const englishBtn = document.getElementById("English");
+const FrenchBtn = document.getElementById("French");
+const GermanBtn = document.getElementById("German");
+const FinnishBtn = document.getElementById("Finnish");
 
 let SubmitBtn = document.getElementById("SubmitBtn");
 
@@ -23,9 +24,67 @@ const loadBooks = bookData.map((bookInfo) => {
   bookshelf.addBook(book);
   return book;
 });
+//create a copy of the loadbooks to use for filtering language/ it was erasing the array 
+//and would not populate any books after clicking on another filter button
+const bookDataCopy = loadBooks.slice();
 
 app.append(bookshelf.render());
-
+//english filter event
+englishBtn.addEventListener("click", () => {
+  //filtering for if the language matches using the copy of bookdata
+  const filteredEnglish = bookDataCopy.filter((book) => book.language === "en");
+  //innerHTML is clearing the bookshelf
+  app.innerHTML = "";
+  //clearbooks is used to empty the array of books so double aren't populated when clicked twice
+  bookshelf.clearBooks();
+  //rendering the filtered books
+  filteredEnglish.forEach((book) => {
+    //using foreach to apply the following to each
+    let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
+    //adding books to bookshelf
+    bookshelf.addBook(sortedBooks);
+    //rendering
+    let newBookUl = sortedBooks.render();
+    //appending
+    app.appendChild(newBookUl);
+  });
+});
+//French filter event same as english
+FrenchBtn.addEventListener("click", () => {
+  const filteredFrench = bookDataCopy.filter((book) => book.language === "fr");
+  bookshelf.clearBooks();
+  app.innerHTML = "";
+  filteredFrench.forEach((book) => {
+    let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
+    bookshelf.addBook(sortedBooks);
+    let newBookUl = sortedBooks.render();
+    app.appendChild(newBookUl);
+  });
+});
+//german filter same as english
+GermanBtn.addEventListener("click", () => {
+  const filteredGerman = bookDataCopy.filter((book) => book.language === "de");
+  bookshelf.clearBooks();
+  app.innerHTML = "";
+  filteredGerman.forEach((book) => {
+    let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
+    bookshelf.addBook(sortedBooks);
+    let newBookUl = sortedBooks.render();
+    app.appendChild(newBookUl);
+  });
+});
+//finnish filter same as english
+FinnishBtn.addEventListener("click", () => {
+  const filteredFinnish = bookDataCopy.filter((book) => book.language === "fi");
+  app.innerHTML = "";
+  bookshelf.clearBooks();
+  filteredFinnish.forEach((book) => {
+    let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
+    bookshelf.addBook(sortedBooks);
+    let newBookUl = sortedBooks.render();
+    app.appendChild(newBookUl);
+  });
+});
 //creating a new book and rendering it
 SubmitBtn.addEventListener("click", () => {
   let author = document.getElementById("Author").value;

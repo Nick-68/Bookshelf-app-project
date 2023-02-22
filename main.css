@@ -41,8 +41,12 @@ header{
     justify-content: center;
     justify-content: space-around;
     padding: 20px;
-    align-items: center;
-    
+    align-items: center;   
+}
+/* sorting buttons grouped together to style */
+#English, #German, #French, #Finnish{
+    height: 40px;
+    width: 80px;
 }
 .homepage{
     background-image: url("images/library.jpg");
@@ -65,19 +69,19 @@ header{
 
 ul{
     
-    margin-left: 25%;
+    /* margin-left: 25%; */
     font-weight: 600;
 }
 li{
     visibility: hidden;
+    
 }
 .inputForm{
     margin: 10px;
     display: flex;
     justify-content:center;
-    justify-content: space-around;   
+    justify-content: space-around;      
 }
-
 button{
     border-radius: 10px;
     height: 20px;
@@ -96,7 +100,7 @@ button{
 .comment{
     visibility: visible;
     display: flex;
-    
+    width: 300px;
 }
 
 h1{
