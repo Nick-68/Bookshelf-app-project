@@ -2,9 +2,6 @@
 const favSection = document.querySelector(".favorites");
 
 class Book {
-  /*
-
-    */
   constructor(author, language, subject, title) {
     this.author = author;
     this.language = language;
@@ -28,6 +25,9 @@ class Book {
       favSection.appendChild(this.render());
     });
 
+    //creating button to bring up comment area
+    const populateCommentInput = document.createElement("button");
+    populateCommentInput.textContent = "Comment";
     //comment area - to the right of the ul(button on click brings up a comment field then a button to submit)
     const commentArea = document.createElement("input");
     commentArea.classList = this.title;
@@ -37,16 +37,30 @@ class Book {
     //btn to add a comment
     const commentBtn = document.createElement("button");
     commentBtn.classList = this.author;
-    commentBtn.textContent = "Comment";
+    commentBtn.textContent = "Add";
+    //making commentArea/commentBtn invisible
+    commentArea.style.display = "none";
+    commentBtn.style.display = "none";
+
+    populateCommentInput.addEventListener("click", () => {
+      commentArea.value = "";
+      commentArea.style.display = "block";
+      commentBtn.style.display = "block";
+    });
+
+    //submit button to add the comment to the page
     commentBtn.addEventListener("click", () => {
       let commentValue = commentArea.value;
 
       const commentLi = document.createElement("li");
       commentLi.classList.add("comment");
       commentLi.textContent = commentValue;
-
       ul.appendChild(commentLi);
+      //turning text field and button invisible after adding comment
+      commentArea.style.display = "none";
+      commentBtn.style.display = "none";
     });
+
     //author li
     const liAuthor = document.createElement("li");
     liAuthor.classList = liAuthor;
@@ -64,8 +78,10 @@ class Book {
 
     //appending to html
     ul.prepend(favBtn);
+    ul.append(populateCommentInput);
     ul.append(commentArea);
     ul.append(commentBtn);
+
     ul.appendChild(liAuthor);
     ul.appendChild(liLang);
     ul.appendChild(liSub);

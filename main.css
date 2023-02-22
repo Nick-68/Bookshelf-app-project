@@ -24,10 +24,9 @@ body{
     position: sticky;
     top: 0px;
     justify-content:space-between; 
-    align-content: center;
+    align-items: center;
     margin: 0; 
 }
-
 a{
     margin-left: 10px;
     margin-right: 10px;
@@ -36,6 +35,14 @@ a{
 }
 a:hover{
     color: blue;
+}
+header{
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: center;
+    
 }
 .homepage{
     background-image: url("images/library.jpg");
@@ -64,7 +71,6 @@ ul{
 li{
     visibility: hidden;
 }
-
 .inputForm{
     margin: 10px;
     display: flex;
