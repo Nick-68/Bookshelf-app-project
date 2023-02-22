@@ -60,8 +60,6 @@ ul{
     
     margin-left: 25%;
     font-weight: 600;
-    /* display: flex;
-    justify-content: center; */
 }
 li{
     visibility: hidden;
@@ -92,7 +90,7 @@ button{
 .comment{
     visibility: visible;
     display: flex;
-    justify-content: center;
+    
 }
 
 h1{
