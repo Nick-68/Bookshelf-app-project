@@ -5,7 +5,6 @@ body {
   display: flex;
   flex-direction: row;
   align-content: center;
-
   margin-left: 0;
 }
 .liHead {
@@ -53,15 +52,19 @@ header {
   background-image: url("images/library.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 .favpage {
   background-image: url("images/favpage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  height: 100vh;
 }
 img{
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+    align-self: center;
 }
 /* .library{
     background-image: url("images/bookshelf.jpg");
@@ -69,15 +72,45 @@ img{
     background-size: cover;
     
 } */
-
+.bookShelfSection{
+    /* display: flex; 
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: row;
+    justify-content: center;  */
+    border: 10px solid grey;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 5px 5px 3px 0px;
+}
+.favorites{
+    border: 10px solid grey;
+    border-radius: 5px;
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    box-shadow: 5px 5px 3px 0px;
+}
 ul {
   /* margin-left: 25%; */
-  font-weight: 600;
-  
+  font-weight: 900;
+  font-size:large;
+  border: 10px solid grey;
+  margin: 0px;
+  background-color:darkgray;
+  background-image: url("bookshelf.png");
+  background-size:cover;
 }
+
+
 ul.children{
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    align-items: center;
 }
 li {
   visibility: hidden;
@@ -105,10 +138,16 @@ button {
   visibility: visible;
   display: flex;
   width: 300px;
+  text-align: center;
 }
 
 h1 {
   display: flex;
   justify-content: center;
   text-decoration-line: underline;
+}
+.otherStuff2{
+    
+    border: 5px solid black;
+    
 }
