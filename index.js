@@ -8,12 +8,9 @@ const FrenchBtn = document.getElementById("French");
 const GermanBtn = document.getElementById("German");
 const FinnishBtn = document.getElementById("Finnish");
 const allBtn = document.getElementById("allBtn");
-
 let SubmitBtn = document.getElementById("SubmitBtn");
-
 const favStuff = document.querySelector(".favStuff");
 let favBooks = [];
-
 //loads books into bookshelf
 const loadBooks = bookData.map((bookInfo) => {
   const book = new Book(
@@ -29,8 +26,8 @@ const loadBooks = bookData.map((bookInfo) => {
 //and would not populate any books after clicking on another filter button
 const bookDataCopy = loadBooks.slice();
 app.append(bookshelf.render());
-
-//english filter event
+//////////////////////////----TDD 5----//////////////////////////
+//english filter event using filter TDD 5
 englishBtn.addEventListener("click", () => {
   //filtering for if the language matches using the copy of bookdata
   const filteredEnglish = bookDataCopy.filter((book) => book.language === "en");
@@ -104,7 +101,6 @@ SubmitBtn.addEventListener("click", () => {
   let language = document.getElementById("Language").value;
   let subject = document.getElementById("Subject").value;
   let title = document.getElementById("Title").value;
-
   //check if any inputs are empty
   if (!author || !language || !subject || !title) {
     alert("Must enter all Information");

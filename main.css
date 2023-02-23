@@ -1,28 +1,39 @@
 body {
   margin: 0;
 }
+/* to exoand the bookshelf 100% when less then a certain width */
+@media screen and (max-width: 700px){
+    section{
+        width: 100%;
+    }
+}
+/* top links to other pages */
 .links {
   display: flex;
-  flex-direction: row;
-  align-content: center;
-  margin-left: 0;
+  /* flex-direction: row; */
+  /* margin-left: 0; */
 }
+/* top left page name */
 .liHead {
   list-style: none;
   text-decoration-line: underline;
-  margin-left: 10px;
+  /* margin-left: 0px; */
   visibility: visible;
+  margin: 0px;
 }
+/* navbar */
 .navbar {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  /* flex-direction: row; */
   background-color: grey;
   position: sticky;
   top: 0px;
   justify-content: space-between;
   align-items: center;
-  margin: 0;
+  /* margin: 0 auto; */
 }
+/* links */
 a {
   margin-left: 10px;
   margin-right: 10px;
@@ -32,9 +43,14 @@ a {
 a:hover {
   color: blue;
 }
+ol{
+    font-weight: 700;
+    font-size: 20px;
+}
+/* header area affecting the sort buttons */
 header {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   justify-content: space-around;
   padding: 20px;
   align-items: center;
@@ -47,37 +63,31 @@ header {
 #allBtn {
   height: 40px;
   width: 80px;
+  box-shadow: 2px 2px 3px 0px;
 }
+/* homepage */
 .homepage {
   background-image: url("images/library.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
+/* favPage */
 .favpage {
   background-image: url("images/favpage.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   height: 100vh;
 }
+/* image that goes next to the book */
 img{
     height: 30px;
     width: 30px;
     margin: 0 auto;
     align-self: center;
 }
-/* .library{
-    background-image: url("images/bookshelf.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    
-} */
+/* bookshelf tried to make it look like bookshelf */
 .bookShelfSection{
-    /* display: flex; 
-    flex-wrap: wrap;
-    align-content: center;
-    flex-direction: row;
-    justify-content: center;  */
     border: 10px solid grey;
     border-radius: 5px;
     width: 80%;
@@ -85,6 +95,7 @@ img{
     text-align: center;
     box-shadow: 5px 5px 3px 0px;
 }
+
 .favorites{
     border: 10px solid grey;
     border-radius: 5px;
@@ -94,23 +105,21 @@ img{
     box-shadow: 5px 5px 3px 0px;
 }
 ul {
-  /* margin-left: 25%; */
   font-weight: 900;
   font-size:large;
   border: 10px solid grey;
   margin: 0px;
   background-color:darkgray;
   background-image: url("bookshelf.png");
-  background-size:cover;
+  background-size:cover; 
+  padding-left: 0px;
 }
-
-
 ul.children{
     display: flex;
     flex-direction: column;
     margin-top: 0px;
     margin-bottom: 0px;
-    align-items: center;
+    align-items: center;   
 }
 li {
   visibility: hidden;
@@ -118,6 +127,7 @@ li {
 .inputForm {
   margin: 10px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   justify-content: space-around;
 }
@@ -126,28 +136,30 @@ button {
   height: 20px;
   width: 70px;
 }
-/* #submitBtn{
-    
-} */
 .commentBox {
   height: 15px;
-  width: 200px;
-  margin-left: 20px;
+  max-width: 200px;
+  margin-left: 20px; 
 }
 .comment {
   visibility: visible;
   display: flex;
-  width: 300px;
+  justify-content: center;
   text-align: center;
+  flex-wrap: wrap;
+  word-break: break-all;
+  padding: 5px;
 }
-
 h1 {
   display: flex;
   justify-content: center;
   text-decoration-line: underline;
 }
 .otherStuff2{
-    
-    border: 5px solid black;
-    
+    border: 5px solid black;  
+}
+input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

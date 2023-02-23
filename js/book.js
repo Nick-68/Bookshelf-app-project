@@ -13,22 +13,19 @@ class Book {
   render() {
     const ul = document.createElement("ul");
     ul.textContent = this.title;
-    //fav button to the left of the title preppend
+    //creating favorite button
     const favBtn = document.createElement("button");
     favBtn.classList = favBtn;
     favBtn.textContent = "Favorite";
     favBtn.type = "button";
     //addig event listener to favbtn
-    //would have put fav on a different page but refreshed everytime
-    //i would change the page i am guessing
     favBtn.addEventListener("click", () => {
       favSection.appendChild(this.render());
     });
-
     //creating button to bring up comment area
     const populateCommentInput = document.createElement("button");
     populateCommentInput.textContent = "Comment";
-    //comment area - to the right of the ul(button on click brings up a comment field then a button to submit)
+    //comment area - to the right of the ul(button on click brings up a comment field and a button to submit)
     const commentArea = document.createElement("input");
     commentArea.classList = this.title;
     commentArea.type = "text";
@@ -52,7 +49,11 @@ class Book {
     //submit button to add the comment to the page
     commentBtn.addEventListener("click", () => {
       let commentValue = commentArea.value;
-
+      if(commentValue == ""){
+        commentArea.style.display = "none"
+        commentBtn.style.display = "none"
+        return "";
+      }
       const commentLi = document.createElement("li");
       commentLi.classList.add("comment");
       commentLi.textContent = commentValue;
