@@ -7,6 +7,7 @@ const englishBtn = document.getElementById("English");
 const FrenchBtn = document.getElementById("French");
 const GermanBtn = document.getElementById("German");
 const FinnishBtn = document.getElementById("Finnish");
+const allBtn = document.getElementById("allBtn");
 
 let SubmitBtn = document.getElementById("SubmitBtn");
 
@@ -27,8 +28,8 @@ const loadBooks = bookData.map((bookInfo) => {
 //create a copy of the loadbooks to use for filtering language/ it was erasing the array 
 //and would not populate any books after clicking on another filter button
 const bookDataCopy = loadBooks.slice();
-
 app.append(bookshelf.render());
+
 //english filter event
 englishBtn.addEventListener("click", () => {
   //filtering for if the language matches using the copy of bookdata
@@ -79,6 +80,18 @@ FinnishBtn.addEventListener("click", () => {
   app.innerHTML = "";
   bookshelf.clearBooks();
   filteredFinnish.forEach((book) => {
+    let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
+    bookshelf.addBook(sortedBooks);
+    let newBookUl = sortedBooks.render();
+    app.appendChild(newBookUl);
+  });
+});
+//reset to all books
+allBtn.addEventListener("click", () => {
+  const filteredAll = bookDataCopy.filter((book) => book.language === book.language);
+  bookshelf.clearBooks();
+  app.innerHTML = "";
+  filteredAll.forEach((book) => {
     let sortedBooks = new Book(book.author, book.language, book.subject, book.title);
     bookshelf.addBook(sortedBooks);
     let newBookUl = sortedBooks.render();

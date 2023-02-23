@@ -44,6 +44,7 @@ class Book {
 
     populateCommentInput.addEventListener("click", () => {
       commentArea.value = "";
+      //setting the commentarea and btn to block making it visible
       commentArea.style.display = "block";
       commentBtn.style.display = "block";
     });
@@ -55,11 +56,17 @@ class Book {
       const commentLi = document.createElement("li");
       commentLi.classList.add("comment");
       commentLi.textContent = commentValue;
-      //sessionstorage (this setItem sets the comment value into the session storage)
-      //this concept is awesome. now i need to be able to access it and bring back to screen.
-      //need to figure out how to store multiple comments for each and for others(give each comment a name)
-     sessionStorage.setItem('comment', [commentValue]);
-      //sessionStorage.removeItem('myKey');
+
+      //this sessionStorage and localStorage is awesome i never knew.
+      //retrieving values stored using the this.title to grab that specific book comment
+      let comments = sessionStorage.getItem(this.title);
+      //if there is comments(truthy not nan, null or other) then constructs the object. else sets as a empty array
+      comments = comments ? JSON.parse(comments) : [];
+      //adds new comment into the array
+      comments.push(commentValue);
+      //sessionstorage (this setItem sets the comment value and into the session storage)
+      sessionStorage.setItem(this.title, JSON.stringify(comments));
+      //appends to the ul
       ul.appendChild(commentLi);
       //turning text field and button invisible after adding comment
       commentArea.style.display = "none";
@@ -80,23 +87,32 @@ class Book {
     const liSub = document.createElement("li");
     liSub.classList = liSub;
     liSub.textContent = this.subject;
-    //sessionStorage
-   
+    //adding book image
+    const img = document.createElement("img");
+    img.src = "R.png";
+    img.alt = "book image";
+
     //appending to html
     ul.prepend(favBtn);
+    ul.prepend(img);
     ul.append(populateCommentInput);
-    let comments = sessionStorage.getItem("comments");
-    if(comments) {
-      comments = JSON.parse(comments);
-      comments.forEach((comment) => {
+    ul.append(commentArea);
+    ul.append(commentBtn);
+    //accessing the sessionStorage and retrieves comments stored for current book
+    const comments = sessionStorage.getItem(this.title);
+    if (comments) {
+      //if comments are stored JSON.parse creating the array of comments to be used
+      const commentList = JSON.parse(comments);
+      //for each comment the below happens li created textcontent set and class list set and is appended to the ul/book title
+      commentList.forEach((comment) => {
         const commentLi = document.createElement("li");
+        commentLi.textContent = comment;
         commentLi.classList.add("comment");
         ul.append(commentLi);
       });
     }
     //const lineBreak = createElement("hr");
-    ul.append(commentArea);
-    ul.append(commentBtn);
+
     //ul.append(lineBreak);
     ul.appendChild(liAuthor);
     ul.appendChild(liLang);
