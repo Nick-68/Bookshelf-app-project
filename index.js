@@ -85,7 +85,7 @@ FinnishBtn.addEventListener("click", () => {
     app.appendChild(newBookUl);
   });
 });
-//reset to all books
+//resets to all books
 allBtn.addEventListener("click", () => {
   const filteredAll = bookDataCopy.filter((book) => book.language === book.language);
   bookshelf.clearBooks();
