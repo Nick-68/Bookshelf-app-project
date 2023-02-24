@@ -1,6 +1,6 @@
-//class book
+//section to where favorite books will be added to
 const favSection = document.querySelector(".favorites");
-
+//class book
 class Book {
   constructor(author, language, subject, title) {
     this.author = author;
@@ -18,14 +18,14 @@ class Book {
     favBtn.classList = favBtn;
     favBtn.textContent = "Favorite";
     favBtn.type = "button";
-    //addig event listener to favbtn
+    //addig event listener to favbtn/ adds to favsection
     favBtn.addEventListener("click", () => {
       favSection.appendChild(this.render());
     });
     //creating button to bring up comment area
     const populateCommentInput = document.createElement("button");
     populateCommentInput.textContent = "Comment";
-    //comment area - to the right of the ul(button on click brings up a comment field and a button to submit)
+    //comment area - input field for comments
     const commentArea = document.createElement("input");
     commentArea.classList = this.title;
     commentArea.type = "text";
@@ -38,7 +38,7 @@ class Book {
     //making commentArea/commentBtn invisible
     commentArea.style.display = "none";
     commentBtn.style.display = "none";
-
+    //populatecommentinput button on click brings up a comment field and a button to submit
     populateCommentInput.addEventListener("click", () => {
       commentArea.value = "";
       //setting the commentarea and btn to block making it visible
@@ -49,6 +49,7 @@ class Book {
     //submit button to add the comment to the page
     commentBtn.addEventListener("click", () => {
       let commentValue = commentArea.value;
+      //if no value will not enter/create anything and dissapear again
       if(commentValue == ""){
         commentArea.style.display = "none"
         commentBtn.style.display = "none"
@@ -58,7 +59,7 @@ class Book {
       commentLi.classList.add("comment");
       commentLi.textContent = commentValue;
 
-      //this sessionStorage and localStorage is awesome i never knew.
+      //this sessionStorage and localStorage is awesome.
       //retrieving values stored using the this.title to grab that specific book comment
       let comments = sessionStorage.getItem(this.title);
       //if there is comments(truthy not nan, null or other) then constructs the object. else sets as a empty array
@@ -66,6 +67,7 @@ class Book {
       //adds new comment into the array
       comments.push(commentValue);
       //sessionstorage (this setItem sets the comment value and into the session storage)
+      //this.title is the key and comments the value
       sessionStorage.setItem(this.title, JSON.stringify(comments));
       //appends to the ul
       ul.appendChild(commentLi);
@@ -90,7 +92,7 @@ class Book {
     liSub.textContent = this.subject;
     //adding book image
     const img = document.createElement("img");
-    img.src = "R.png";
+    img.src = "images/R.png";
     img.alt = "book image";
 
     //appending to html
@@ -112,9 +114,7 @@ class Book {
         ul.append(commentLi);
       });
     }
-    //const lineBreak = createElement("hr");
-
-    //ul.append(lineBreak);
+    //appending children
     ul.appendChild(liAuthor);
     ul.appendChild(liLang);
     ul.appendChild(liSub);

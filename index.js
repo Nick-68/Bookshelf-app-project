@@ -1,13 +1,15 @@
 const app = document.querySelector(".bookShelfSection");
-let bookshelf = new Bookshelf();
-const updateFavs = document.querySelector(".favBooks");
-const updateComment = document.querySelector(".this.title");
-//sorting language buttons
+let bookshelf = new BookShelf();
+
+//sorting language buttons --- TDD 5 ---
 const englishBtn = document.getElementById("English");
 const FrenchBtn = document.getElementById("French");
 const GermanBtn = document.getElementById("German");
 const FinnishBtn = document.getElementById("Finnish");
 const allBtn = document.getElementById("allBtn");
+
+const updateFavs = document.querySelector(".favBooks");
+const updateComment = document.querySelector(".this.title");
 let SubmitBtn = document.getElementById("SubmitBtn");
 const favStuff = document.querySelector(".favStuff");
 let favBooks = [];
@@ -25,7 +27,7 @@ const loadBooks = bookData.map((bookInfo) => {
 //create a copy of the loadbooks to use for filtering language/ it was erasing the array 
 //and would not populate any books after clicking on another filter button
 const bookDataCopy = loadBooks.slice();
-app.append(bookshelf.render());
+bookshelf.render()
 //////////////////////////----TDD 5----//////////////////////////
 //english filter event using filter TDD 5
 englishBtn.addEventListener("click", () => {

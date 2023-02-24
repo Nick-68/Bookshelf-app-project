@@ -1,37 +1,19 @@
 body {
   margin: 0;
 }
-/* to exoand the bookshelf 100% when less then a certain width */
-@media screen and (max-width: 700px){
-    section{
-        width: 100%;
-    }
-}
 /* top links to other pages */
 .links {
   display: flex;
-  /* flex-direction: row; */
-  /* margin-left: 0; */
-}
-/* top left page name */
-.liHead {
-  list-style: none;
-  text-decoration-line: underline;
-  /* margin-left: 0px; */
-  visibility: visible;
-  margin: 0px;
 }
 /* navbar */
 .navbar {
   display: flex;
   flex-wrap: wrap;
-  /* flex-direction: row; */
   background-color: grey;
   position: sticky;
   top: 0px;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  /* margin: 0 auto; */
 }
 /* links */
 a {
@@ -43,14 +25,13 @@ a {
 a:hover {
   color: blue;
 }
-ol{
-    font-weight: 700;
-    font-size: 20px;
+ol {
+  font-weight: 700;
+  font-size: 20px;
 }
 /* header area affecting the sort buttons */
 header {
   display: flex;
-  /* justify-content: center; */
   justify-content: space-around;
   padding: 20px;
   align-items: center;
@@ -80,47 +61,46 @@ header {
   height: 100vh;
 }
 /* image that goes next to the book */
-img{
-    height: 30px;
-    width: 30px;
-    margin: 0 auto;
-    align-self: center;
+img {
+  height: 30px;
+  width: 30px;
 }
 /* bookshelf tried to make it look like bookshelf */
-.bookShelfSection{
-    border: 10px solid grey;
-    border-radius: 5px;
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 5px 5px 3px 0px;
+.bookShelfSection {
+  border: 10px solid grey;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 5px 5px 3px 0px;
 }
-
-.favorites{
-    border: 10px solid grey;
-    border-radius: 5px;
-    width: 80%;
-    margin: 0 auto;
-    text-align: center;
-    box-shadow: 5px 5px 3px 0px;
+/* favorites section */
+.favorites {
+  border: 10px solid grey;
+  border-radius: 5px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: 5px 5px 3px 0px;
 }
 ul {
   font-weight: 900;
-  font-size:large;
+  font-size: large;
   border: 10px solid grey;
   margin: 0px;
-  background-color:darkgray;
-  background-image: url("bookshelf.png");
-  background-size:cover; 
+  background-color: darkgray;
+  background-image: url("images/bookshelf.png");
+  background-size: cover;
   padding-left: 0px;
 }
-ul.children{
-    display: flex;
-    flex-direction: column;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    align-items: center;   
+ul.children {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  align-items: center;
 }
+/* hides the language subject and author to focus on the title and comments */
 li {
   visibility: hidden;
 }
@@ -131,6 +111,7 @@ li {
   justify-content: center;
   justify-content: space-around;
 }
+/* comment favorite and add comment btns */
 button {
   border-radius: 10px;
   height: 20px;
@@ -139,8 +120,9 @@ button {
 .commentBox {
   height: 15px;
   max-width: 200px;
-  margin-left: 20px; 
+  margin-left: 20px;
 }
+/* making the comment li visible while the book author and other are invisible */
 .comment {
   visibility: visible;
   display: flex;
@@ -155,11 +137,6 @@ h1 {
   justify-content: center;
   text-decoration-line: underline;
 }
-.otherStuff2{
-    border: 5px solid black;  
-}
-input{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.otherStuff2 {
+  border: 5px solid black;
 }
